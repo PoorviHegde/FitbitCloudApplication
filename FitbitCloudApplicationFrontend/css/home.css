@@ -1,0 +1,42 @@
+        /* Style for the navigation bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #07626e;
+            color: #fff;
+            padding: 10px;
+        }
+
+        /* Style for the search bar */
+        #search-bar {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        /* Style for the sections */
+        .section-column {
+            flex: 30%;
+            padding: 5px;
+        }
+
+        /* Style for the section rows */
+        .section-row {
+            display: flex;
+        }
+
+        .section-column h3 {
+            background-color: #07626e; /* Change this to your preferred color */
+            color: #fff; /* Change this to your preferred text color */
+         
+        }
+
+        /* Style for the image container */
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
