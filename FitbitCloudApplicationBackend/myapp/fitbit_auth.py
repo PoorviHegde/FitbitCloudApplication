@@ -4,7 +4,7 @@ def token_saver(token):
     # Save the token in session or database
     request.session['oauth_token'] = token
 
-def get_access_token():
+def get_access_token(request):
     # Your client ID and client secret
     client_id = '23RKLK'
     client_secret = 'c88842e07f09710275ad60a949199510'
@@ -14,7 +14,25 @@ def get_access_token():
     token_url = 'https://api.fitbit.com/oauth2/token'
 
     # Create an OAuth2 session
-    fitbit = OAuth2Session(client_id,token=request.session.get('oauth_token', None), auto_refresh_url=token_url, auto_refresh_kwargs={'client_id': client_id, 'client_secret': client_secret}, token_updater=token_saver)
+    fitbit = OAuth2Session(client_id,
+                           scope=["activity", 
+                                  "heartrate",
+                                  "location",
+                                  "nutrition",
+                                  "oxygen_saturation",
+                                  "profile",
+                                  "respiratory_rate",
+                                  "settings",
+                                  "sleep",
+                                  "social",
+                                  "weight",
+                                  "temperature",
+                                  "cardio_fitness",
+                                  "electrocardiogram"],
+                           token=request.session.get('oauth_token', None), 
+                           auto_refresh_url=token_url, 
+                           auto_refresh_kwargs={'client_id': client_id, 'client_secret': client_secret}, 
+                           token_updater=token_saver)
 
     if not request.session.get('oauth_token'):
         # Get the authorization URL and state
@@ -27,9 +45,15 @@ def get_access_token():
         redirect_response = input('Paste the full redirect URL here:')
 
         # Fetch the access token
-        token = fitbit.fetch_token(token_url, client_secret=client_secret, authorization_response=redirect_response)
+        access_token = fitbit.fetch_token(token_url, client_secret=client_secret, authorization_response=redirect_response)
 
+        # print('Access token:', access_token) 
+
+        
         # Save the token in the session
-        request.session['oauth_token'] = token
+        request.session['access_token'] = access_token
+        request.session.modified = True
 
-    return request.session['oauth_token']['access_token']
+        print("token: ", access_token)
+
+    return access_token

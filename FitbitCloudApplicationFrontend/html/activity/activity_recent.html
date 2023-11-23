@@ -2,16 +2,20 @@
 <html>
 <head>
     <title>My Web App</title>
-    <link rel="stylesheet" type="text/css" href="../css/activity.css">
+    <link rel="stylesheet" type="text/css" href="../../css/activity/activity_recent.css">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/activity.js"></script>
+    <script src="../../js/activity/activity_recent.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 
     <nav>
         <div>
-            <img src="logo.png" alt="My Logo" height="50">
+            <a href="../home.html">
+                <img src="../images/logo.png" alt="My Logo" height="50">
+            </a>
         </div>
         <div style="display: flex; align-items: center;">
             <input type="text" id="search-bar" placeholder="Search...">
@@ -19,7 +23,7 @@
         </div>
     </nav>
 
-    <ul>
+    <!-- <ul>
         <li>
             <div class="option">
                 <button class="collapsible">Option 1</button>
@@ -52,6 +56,11 @@
                 </div>
             </div>
         </li>
-    </ul>
+    </ul> -->
+
+    <div id = "activity_recent" class="content-section">
+        <table id="activityRecentTable"></table>
+    </div>
+
 
 </body>

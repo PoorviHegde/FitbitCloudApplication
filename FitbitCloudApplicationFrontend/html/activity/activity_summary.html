@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Web App</title>
+    <link rel="stylesheet" type="text/css" href="../../css/activity/activity_summary.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/activity/activity_summary.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <a href="../home.html">
+                <img src="../../images/logo.png" alt="My Logo" height="50">
+            </a>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <input type="text" id="search-bar" placeholder="Search...">
+            <a href="#" style="margin-right: 10px;color:#07626e;text-decoration: none;border-radius: 5px; padding: 5px 10px; background-color: #ffffff;">Reports</a>
+        </div>
+    </nav>
+
+
+
+    <div id = "activity_summary" class="content-section">
+        <table id="activitySummaryTable"></table>
+    </div>
+
+</body>

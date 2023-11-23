@@ -1,42 +1,121 @@
-        /* Style for the navigation bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #07626e;
-            color: #fff;
-            padding: 10px;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+      
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+    /* Style for the navigation bar */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #07626e;
+        color: #fff;
+        padding: 10px;
+    }
 
-        /* Style for the search bar */
-        #search-bar {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            width: 200px;
-            margin-right: 10px;
-        }
+    /* Style for the search bar */
+    #search-bar {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+        margin-right: 10px;
+    }
 
-        /* Style for the sections */
-        .section-column {
-            flex: 30%;
-            padding: 5px;
-        }
+ 
 
-        /* Style for the section rows */
-        .section-row {
-            display: flex;
-        }
+    .collapsible {
+        display: flex;
+        align-items: center;
+        background-color: #ddd;
+        color: black;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        margin-bottom: 0; 
+        line-height: 50px; 
+    }
+    
+    .icon {
+        width: 50px;  /* Adjust as needed */
+        height: 50px;  /* Adjust as needed */
+        margin-right: 10px;
+    }
+    
+    .content {
+        padding: 0 18px;
+        display: none;  /* Hide content by default */
+        background-color: #f1f1f1;
+    }
 
-        .section-column h3 {
-            background-color: #07626e; /* Change this to your preferred color */
-            color: #fff; /* Change this to your preferred text color */
-         
-        }
+    ul {
+        list-style-type: none;
+        width: 80%;  /* Adjust as needed */
+        margin: 20px auto 0;   /* Centers the list */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 
-        /* Style for the image container */
-        .image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    li {
+        margin-bottom: 20px;  /* Adjust as needed */
+    }
+
+    .content ul {
+        list-style-type: none;  /* Removes the bullet points */
+        padding: 0;  /* Removes the default padding */
+        display: table;
+        width: 100%;  
+        margin: 0;
+    }
+    
+    .content li {
+        margin-bottom: table-row;  /* Adds space between the paths */
+    }
+
+    .content li a {
+        display: table-cell;  /* Makes the links behave like table cells */
+        padding: 10px;  /* Adds padding to the cells */
+        border-bottom: 1px solid #ddd;  /* Adds a border to the bottom of the cells */
+        text-decoration: none; 
+        color: black; 
+    }
+    .ui-dialog {
+        background: white;
+        opacity: 1;
+        z-index: 1000; /* This ensures the dialog appears above other elements */
+        position: fixed !important; /* This makes the dialog stay in the same place even when the page is scrolled */
+        top: 50% !important; /* This positions the dialog halfway down the page */
+        left: 50% !important; /* This positions the dialog halfway across the page */
+        transform: translate(-50%, -50%); /* This shifts the dialog up and left by half its height and width, effectively centering it */
+    }
+    
+    .ui-datepicker .ui-datepicker-prev {
+        float: left;
+    }
+    
+    .ui-datepicker .ui-datepicker-next {
+        float: right !important;
+        margin-right: 0 !important;
+    }
+
+    .ui-dialog .ui-dialog-titlebar-close {
+        float: right;
+    }
+
+    .ui-datepicker .ui-datepicker-header {
+        padding: 0;
+        width: 100%; 
+    }
+
+    .ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+        width: 100%; /* This makes the div take up the full width of its parent */
+    }
+
+    .nav-link {
+        cursor: pointer;
+    }

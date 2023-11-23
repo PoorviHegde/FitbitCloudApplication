@@ -2,13 +2,15 @@
 <html>
 <head>
     <title>My Web App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/home.css">
 </head>
 <body>
-    <script src="home.js"></script>
+    <script src="../js/home.js"></script>
     <nav>
         <div>
-            <img src="logo.png" alt="My Logo" height="50">
+            <img src="../images/logo.png" alt="My Logo" height="50">
         </div>
         <div style="display: flex; align-items: center;">
             <input type="text" id="search-bar" placeholder="Search...">
@@ -16,120 +18,223 @@
         </div>
     </nav>
     <div style="text-align: center;">
-        <div class="section-row">
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Activity</h3>
-                    <a href="activity.html">
-                        <img src="../images/Activity.png" alt="Activity" style="width:80%">
-                    </a>
-                    
-                </div>   
-            </div>
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Body</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Body.png" alt="Body" style="width:80%">
-                    </a>
-                </div>              
-            </div>
-        </div>
-        <div class="section-row">
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Breathing</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Breathing.png" alt="Breathing" style="width:80%">
-                    </a>
-                </div>
-            </div>
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Cardio</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Cardio.png" alt="Cardio" style="width:80%">
-                    </a>                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="section-row">
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Devices</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Devices.png" alt="Devices" style="width:80%">
-                    </a>
-                </div>
-            </div>
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">ECG</h3>
-                    <a href="your-link-here">
-                        <img src="../images/ECG.png" alt="ECG" style="width:80%">
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <div class="section-row">
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Friends</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Friends.png" alt="Friends" style="width:80%">
-                    </a>
-                </div>
-            </div>
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">HeartRate</h3>
-                    <a href="your-link-here">
-                        <img src="../images/HeartRate.png" alt="HeartRate" style="width:80%">
-                    </a>
-                </div>         
-            </div>
-        </div>
 
-        <div class="section-row">
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Nutrition</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Nutrition.png" alt="Nutrition" style="width:80%">  
-                    </a>
-                </div>
+    <ul>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Activity.png" alt="Activity" class="icon">
+                <span>Activity</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a href="../html/activity/activity_log.html" class="nav-link">View Activity Logs</a></li>
+                    <!-- <li><a href="../html/activity/activty_type.html" class="nav-link">View Details on specific type of activity</a></li> -->
+                    <li><a id="summary_by_date_link" class="nav-link">View Activity summary of a specific date</a></li>
+                    <li><a href="../html/activity/activity_frequent.html" class="nav-link">View Frequent Activities</a></li>
+                    <li><a href="../html/activity/activity_recent.html" class="nav-link">View Most Recent Activity</a></li>
+                    <!-- Add more paths as needed -->
+                </ul>
             </div>
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Oxygen</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Oxygen.png" alt="Oxygen" style="width:80%">
-                    </a>
-                </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Body.png" alt="Body" class="icon">
+                <span>Body</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a href="../html/body/body_goal.html">View Body Goals </a></li>
+                    <li><a id="body_fat_date_link" class="nav-link">View Body Fat</a></li>
+                    <li><a id="body_weight_link" class="nav-link">View Body Weight</a></li>
+                    <!-- Add more paths as needed -->
+                </ul>
             </div>
-        </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Breathing.png" alt="Breathing" class="icon">
+                <span>Breathing</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a id="breathing_link" class="nav-link">View Breathing Rate </a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Cardio.png" alt="Cardio" class="icon">
+                <span>Cardio</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a id="cardio_link" class="nav-link">View Cardio Fitness Score </a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Devices.png" alt="Devices" class="icon">
+                <span>Devices</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a href="../html/devices/alarms.html">View Alarms </a></li>
+                    <li><a href="../html/devices/connected_devices.html">View Devices Connected</a></li>
 
-        <div class="section-row">
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Sleep</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Sleep.png" alt="Sleep" style="width:80%">
-                    </a>
-                </div>
+                </ul>
             </div>
-            <div class="section-column">
-                <div class="image-container">
-                    <h3 style="width:80%">Temperature</h3>
-                    <a href="your-link-here">
-                        <img src="../images/Temperature.png" alt="Temperature" style="width:80%">
-                    </a>
-                </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/ECG.png" alt="ECG" class="icon">
+                <span>ECG</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a href="../html/ecg/ecg.html">View ECG Data </a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Friends.png" alt="Friends" class="icon">
+                <span>Friends</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a href="../html/friends/friends.html">View Friends </a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/HeartRate.png" alt="HeartRate" class="icon">
+                <span>HeartRate</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a id="heart_rate_range" class="nav-link">View Heart Rates in a date range </a></li>
+                    <li><a id="heart_rate_variability" class="nav-link">View Heart Rate variability on a specific day</a></li>
+                    <!-- <li><a id="heart_rate_variability_range" class="nav-link">View Rate variability in a date range</a></li> -->
+                    <!-- Add more paths as needed -->
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Nutrition.png" alt="Nutrition" class="icon">
+                <span>Nutrition</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a id="food_link" class="nav-link">View Food Log on a date </a></li>
+                    <li><a href="../html/nutrition/recent_food.html">View recently consumed food</a></li>
+                    <li><a id="water_link" class="nav-link">View water log on a date</a></li>
+                    <!-- Add more paths as needed -->
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Oxygen.png" alt="Oxygen" class="icon">
+                <span>Oxygen</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a id="oxygen_link" class="nav-link">View SPO2 summary on a date </a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button class="collapsible">
+                <img src="../images/Sleep.png" alt="Sleep" class="icon">
+                <span>Sleep</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a id="sleep_link" class="nav-link">View Sleep summary in a date range </a></li>
+                    <li><a id="sleeplog_link" class="nav-link">View sleep log on a date</a></li>
+                </ul>
+            </div>
+        </li>   
+        <li>
+            <button class="collapsible">
+                <img src="../images/Temperature.png" alt="Temperature" class="icon">
+                <span>Temperature</span>
+            </button>
+            <div class="content">
+                <ul>
+                    <li><a id="temperature_core_link" class="nav-link">View Core Temperature in a date range </a></li>
+                    <li><a id="temperature_skin_link" class="nav-link">View Skin Temperature in a date range</a></li>
+                </ul>
+            </div>
+        </li>
 
-            </div>
-        </div>
+    </ul>
+
+
+        <!-- Add this somewhere in your HTML -->
+    <div id="datepicker-dialog-actsummary" title="Pick a date" style="display: none;" >   
+        <div class="datepicker"></div>
     </div>
+
+    <div id="datepicker-dialog-bodyfat" title="Pick a date" style="display: none;" class="datepick">
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-weight" title="Pick a date" style="display: none;" class="datepick">
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-breathing" title="Pick start and end dates" style="display: none;" class="datepick">
+        <div class="datepicker_range"></div>
+    </div>
+
+    <div id="datepicker-dialog-cardio" title="Pick start and end dates" style="display: none;" class="datepick">
+        <div class="datepicker_range"></div>
+    </div>
+
+    <div id="datepicker-dialog-hr" title="Pick start and end dates" style="display: none;" class="datepick">
+        <div class="datepicker_range"></div>
+    </div>
+
+    <div id="datepicker-dialog-hrv" title="Pick a date" style="display: none;" class="datepick">
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-food" title="Pick a date" style="display: none;" class="datepick">
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-water" title="Pick a date" style="display: none;" class="datepick">
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-oxygen" title="Pick a Date" style="display: none;" class="datepick">
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-sleep" title="Pick start and end dates" style="display: none;" class="datepick">
+        <div class="datepicker_range"></div>
+    </div>
+
+    <div id="datepicker-dialog-sleeplog" title="Pick a Date" style="display: none;" class="datepick">
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-temperaturecore" title="Pick start and end dates" style="display: none;" class="datepick">
+        <div class="datepicker_range"></div>
+    </div>
+
+    <div id="datepicker-dialog-temperatureskin" title="Pick start and end dates" style="display: none;" class="datepick">
+        <div class="datepicker_range"></div>
+    </div>
+    
+
+
+\
+
 </body>
 </html>
