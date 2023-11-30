@@ -3,6 +3,10 @@ $(document).ready(function() {
     var access_token = sessionStorage.getItem('access_token');
 
     $('#activityFrequentTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         scrollX: true,
 
         ajax: {

@@ -3,6 +3,10 @@ $(document).ready(function() {
     var access_token = sessionStorage.getItem('access_token');
 
     $('#activityRecentTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         scrollX: true,
         ajax: {
             url: 'http://localhost:8080/api/activity/recent_activity/',

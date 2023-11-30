@@ -3,6 +3,10 @@ $(document).ready(function() {
     var access_token = sessionStorage.getItem('access_token');
 
     $('#activityLogTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         scrollX: true,
         ajax: {
             url: 'http://localhost:8080/api/activity/log/',
@@ -68,6 +72,15 @@ $(document).ready(function() {
         ],
         initComplete: function(settings, json) {
             console.log(json);
+
+            var api = this.api();
+            // Create a new row in the table header
+            var newRow = $('<tr>').appendTo($(api.table().header()));
+        
+            
         }
     });
+
+
+
 });

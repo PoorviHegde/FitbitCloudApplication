@@ -19,6 +19,10 @@ $(document).ready(function() {
 
 
     var table = $('#heartRateVariabilityTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         scrollX: true,
         autoWidth: false,
         deferRender: true, // This will defer the rendering until DataTables is ready to do so

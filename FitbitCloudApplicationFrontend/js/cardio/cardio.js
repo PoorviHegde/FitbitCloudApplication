@@ -18,6 +18,10 @@ $(document).ready(function() {
     var encodedDateEnd = encodeURIComponent(dateEnd);
 
     var table = $('#cardioTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         scrollX: true,
         autoWidth: false,
         deferRender: true, // This will defer the rendering until DataTables is ready to do so

@@ -19,6 +19,10 @@ $(document).ready(function() {
         scrollX: true,
         autoWidth: false,
         deferRender: true, // This will defer the rendering until DataTables is ready to do so
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         ajax: {
             url: 'http://localhost:8080/api/body/weight/date/' + encodedDate + '/',
             type: 'GET',

@@ -15,6 +15,10 @@ $(document).ready(function() {
     var encodedDate = encodeURIComponent(date);
 
     $('#activitySummaryTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         scrollX: true,
         ajax: {
             url: 'http://localhost:8080/api/activity/summary/'+encodedDate+ '/',

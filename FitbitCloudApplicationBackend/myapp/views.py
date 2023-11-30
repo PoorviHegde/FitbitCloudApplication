@@ -19,30 +19,23 @@ def get_access(request):
 
 
 def activity_log(request, activity_type=None, date=None):
-
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
-
+    # print("auth_header: ", auth_header)
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
     else:
-        access_token = None
-        
+        access_token = None     
     # The headers for the API request
     headers = {
         'Authorization': f'Bearer {access_token}',
     }
-    # Replace this with your actual data
-
     if request.path == '/api/activity/log/':
         api_url = 'https://api.fitbit.com/1/user/-/activities/list.json?afterDate=2019-01-01&sort=asc&offset=0&limit=100'
     else:
         return JsonResponse({'error': 'Invalid path'}, status=400)
-
-   
     activity = requests.get(api_url, headers=headers)
-    print("activity: ", activity.json())
+    # print("activity: ", activity.json())
     return JsonResponse(activity.json())
 
 def activities_frequent(request, activity_type=None, date=None):
@@ -65,16 +58,14 @@ def activities_frequent(request, activity_type=None, date=None):
     
     activity = requests.get(api_url, headers=headers)
     if activity.status_code == 200:
-        print("activity_frequent: ", activity.text)
+        # print("activity_frequent: ", activity.text)
         activity_data = activity.json()
         return JsonResponse(activity_data[0])
     else:
         return JsonResponse({'error': 'API call failed', 'details': activity.text}, status=400)
 
-def activities_recent(request, activity_type=None, date=None):
-    
-    print("request: ", request)
-          
+def activities_recent(request, activity_type=None, date=None): 
+    print("request: ", request)        
     auth_header = request.META.get('HTTP_AUTHORIZATION')
 
     if auth_header is not None:
@@ -93,7 +84,7 @@ def activities_recent(request, activity_type=None, date=None):
     
     activity = requests.get(api_url, headers=headers)
     if activity.status_code == 200:
-        print("activity_recent: ", activity.text)
+        # print("activity_recent: ", activity.text)
         activity_data = activity.json()
         return JsonResponse(activity_data[0])
     else:
@@ -118,10 +109,10 @@ def activities_type(request, activity_type=None, date=None):
         return JsonResponse({'error': 'Invalid path'}, status=400)
     
     activity = requests.get(api_url, headers=headers)
-    print("activit_frequent: ", activity.json())
+    # print("activit_frequent: ", activity.json())
     return JsonResponse(activity.json())
 
-def activities_summary(request, activity_type=None, date=None):
+def activities_summary(request,date=None):
         
     auth_header = request.META.get('HTTP_AUTHORIZATION')
 
@@ -140,7 +131,7 @@ def activities_summary(request, activity_type=None, date=None):
         return JsonResponse({'error': 'Invalid path'}, status=400)
     
     activity = requests.get(api_url, headers=headers)
-    print("activit_summary: ", activity.json())
+    # print("activit_summary: ", activity.json())
     return JsonResponse(activity.json())
 
 # Create your views here.
@@ -148,7 +139,7 @@ def activities_summary(request, activity_type=None, date=None):
 def body_goal(request):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -167,13 +158,13 @@ def body_goal(request):
 
     # Replace this with your actual data
     body = requests.get(api_url, headers=headers)
-    print("body: ", body.json())
+    # print("body: ", body.json())
     return JsonResponse(body.json())
 
 def body_weight(request,date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -193,13 +184,13 @@ def body_weight(request,date=None):
 
     # Replace this with your actual data
     body = requests.get(api_url, headers=headers)
-    print("body: ", body.json())
+    # print("body: ", body.json())
     return JsonResponse(body.json())
 
 def body_fat(request,date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -219,14 +210,14 @@ def body_fat(request,date=None):
 
     # Replace this with your actual data
     body = requests.get(api_url, headers=headers)
-    print("body: ", body.json());
+    # print("body: ", body.json());
     return JsonResponse(body.json())
 
 
 def breathing(request, start_date=None, end_date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -245,14 +236,14 @@ def breathing(request, start_date=None, end_date=None):
    
     # Replace this with your actual data
     breathing = requests.get(api_url, headers=headers)
-    print("breathing: ", breathing.json())
+    # print("breathing: ", breathing.json())
     return JsonResponse(breathing.json())
 
 
 def cardio(request,start_date=None, end_date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -272,14 +263,14 @@ def cardio(request,start_date=None, end_date=None):
     
     # Replace this with your actual data
     cardio = requests.get(api_url, headers=headers)
-    print("cardio: ", cardio.json())
+    # print("cardio: ", cardio.json())
     return JsonResponse(cardio.json())
 
 
 def alarms(request, device_id=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -298,13 +289,13 @@ def alarms(request, device_id=None):
 
     # Replace this with your actual data
     devices = requests.get(api_url, headers=headers)
-    print("alarms: ", alarms.json())
-    return JsonResponse(devices.json())
+    # print("alarms: ", alarms)
+    return JsonResponse(devices.json(),safe=False)
 
 def devices(request):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -316,21 +307,21 @@ def devices(request):
         'Authorization': f'Bearer {access_token}',
     }
 
-    if request.path == '/api/devices/':
+    if request.path == '/api/devices/list/':
         api_url = 'https://api.fitbit.com/1/user/-/devices.json'
     else:
         return JsonResponse({'error': 'Invalid path'}, status=400)
 
     # Replace this with your actual data
     devices = requests.get(api_url, headers=headers)
-    print("devices: ", devices.json())
+    # print("devices: ", devices.json())
     return JsonResponse(devices.json(),safe=False)
 
 
 def ecg(request):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -350,14 +341,14 @@ def ecg(request):
     
     # Replace this with your actual data
     ecg = requests.get(api_url, headers=headers)
-    print("ecg: ", ecg.json())
+    # print("ecg: ", ecg.json())
     return JsonResponse(ecg.json())
 
 
 def friends(request):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -375,14 +366,14 @@ def friends(request):
 
     # Replace this with your actual data
     friends = requests.get(api_url, headers=headers)
-    print("friends: ", friends.json())
+    # print("friends: ", friends.json())
     return JsonResponse(friends.json())
 
 
 def heartrate(request, start_date=None, end_date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -403,13 +394,13 @@ def heartrate(request, start_date=None, end_date=None):
 
 
     heartrate = requests.get(api_url, headers=headers)
-    print("heartrate: ", heartrate.json())
+    # print("heartrate: ", heartrate.json())
     return JsonResponse(heartrate.json())
 
 def heartrateVariability(request, date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -428,7 +419,7 @@ def heartrateVariability(request, date=None):
         return JsonResponse({'error': 'Invalid path'}, status=400)
 
     heartrate = requests.get(api_url, headers=headers)
-    print("heartrate: ", heartrate.json())
+    # print("heartrate: ", heartrate.json())
     return JsonResponse(heartrate.json())
 
 
@@ -436,7 +427,7 @@ def heartrateVariability(request, date=None):
 def food(request, date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -454,13 +445,13 @@ def food(request, date=None):
 
     # Replace this with your actual data
     nutrition = requests.get(api_url, headers=headers)
-    print("nutrition: ", nutrition.json())
+    # print("nutrition: ", nutrition.json())
     return JsonResponse(nutrition.json())
 
 def water(request, date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -480,13 +471,13 @@ def water(request, date=None):
 
     # Replace this with your actual data
     nutrition = requests.get(api_url, headers=headers)
-    print("nutrition: ", nutrition.json())
+    # print("nutrition: ", nutrition.json())
     return JsonResponse(nutrition.json())
 
 def recent_food(request):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -505,14 +496,14 @@ def recent_food(request):
 
     # Replace this with your actual data
     nutrition = requests.get(api_url, headers=headers)
-    print("nutrition: ", nutrition.json())
+    # print("nutrition: ", nutrition.json())
     return JsonResponse(nutrition.json(),safe=False)
 
 
 def oxygen(request, date=None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -531,13 +522,13 @@ def oxygen(request, date=None):
         return JsonResponse({'error': 'Invalid path'}, status=400)
 
     oxygen = requests.get(api_url, headers=headers)
-    print("oxygen: ", oxygen.json())
+    # print("oxygen: ", oxygen.json())
     return JsonResponse(oxygen.json())
 
 def sleep(request, start_date:None, end_date:None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -555,14 +546,14 @@ def sleep(request, start_date:None, end_date:None):
 
     # Replace this with your actual data
     sleep = requests.get(api_url, headers=headers)
-    print("sleep: ", sleep.json())
+    # print("sleep: ", sleep.json())
     return JsonResponse(sleep.json())
 
 
 def sleeplog(request, date:None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -580,13 +571,13 @@ def sleeplog(request, date:None):
 
     # Replace this with your actual data
     sleep = requests.get(api_url, headers=headers)
-    print("sleep: ", sleep.json())
+    # print("sleep: ", sleep.json())
     return JsonResponse(sleep.json())
 
 def temperature_core(request, start_date:None, end_date:None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -603,14 +594,14 @@ def temperature_core(request, start_date:None, end_date:None):
         return JsonResponse({'error': 'Invalid path'}, status=400)
     
     temperature = requests.get(api_url, headers=headers)
-    print("temperature: ", temperature.json())
+    # print("temperature: ", temperature.json())
     return JsonResponse(temperature.json())
     
 
 def temperature_skin(request, start_date:None, end_date:None):
     print("request: ", request)
     auth_header = request.META.get('HTTP_AUTHORIZATION')
-    print("auth_header: ", auth_header)
+    # print("auth_header: ", auth_header)
 
     if auth_header is not None:
         access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
@@ -629,6 +620,6 @@ def temperature_skin(request, start_date:None, end_date:None):
 
     # Replace this with your actual data
     temperature = requests.get(api_url, headers=headers)
-    print("temperature: ", temperature.json())
+    # print("temperature: ", temperature.json())
     return JsonResponse(temperature.json())
 
