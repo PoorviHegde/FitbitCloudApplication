@@ -31,7 +31,7 @@
             <div class="content">
                 <ul>
                     <li><a href="../html/activity/activity_log.html" class="nav-link">View Activity Logs</a></li>
-                    <!-- <li><a href="../html/activity/activty_type.html" class="nav-link">View Details on specific type of activity</a></li> -->
+                    <li><a id="activity_by_time_link" class="nav-link">View Intraday details on specific date</a></li>
                     <li><a id="summary_by_date_link" class="nav-link">View Activity summary of a specific date</a></li>
                     <li><a href="../html/activity/activity_frequent.html" class="nav-link">View Frequent Activities</a></li>
                     <li><a href="../html/activity/activity_recent.html" class="nav-link">View Most Recent Activity</a></li>
@@ -179,6 +179,10 @@
 
         <!-- Add this somewhere in your HTML -->
     <div id="datepicker-dialog-actsummary" title="Pick a date" style="display: none;" >   
+        <div class="datepicker"></div>
+    </div>
+
+    <div id="datepicker-dialog-activtime" title="Pick a date" style="display: none;" >   
         <div class="datepicker"></div>
     </div>
 

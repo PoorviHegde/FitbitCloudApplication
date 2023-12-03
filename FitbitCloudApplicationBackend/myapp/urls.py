@@ -6,7 +6,7 @@ urlpatterns = [
 
     path('api/activity/log/', views.activity_log, name='activity_log'),
     # path('api/activity/lap_location', views.activity, name='activity_lap_location'),
-    # path('api/activity/type/<str:activity_type>/', views.activities_type, name='activity_by_type'),
+    path('api/activity/time/<str:date>/', views.activities_time, name='activity_by_time'),
     path('api/activity/summary/<str:date>/', views.activities_summary, name='activity_summary_by_date'),
     path('api/activity/frequent_activities/', views.activities_frequent, name='activity_frequent'),
     path('api/activity/recent_activity/', views.activities_recent, name='activity_recent_activity'),

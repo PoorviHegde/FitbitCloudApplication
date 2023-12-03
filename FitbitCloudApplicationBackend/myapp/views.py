@@ -90,8 +90,8 @@ def activities_recent(request, activity_type=None, date=None):
     else:
         return JsonResponse({'error': 'API call failed', 'details': activity.text}, status=400)
 
-def activities_type(request, activity_type=None, date=None):
-        
+def activities_time(request, date=None):
+    print("request: ", request)  
     auth_header = request.META.get('HTTP_AUTHORIZATION')
 
     if auth_header is not None:
@@ -103,13 +103,13 @@ def activities_type(request, activity_type=None, date=None):
     headers = {
         'Authorization': f'Bearer {access_token}',
     }
-    if activity_type is not None:
-        api_url = f'https://api.fitbit.com/1/user/-/activities/{activity_type}.json'
+    if date is not None:
+        api_url = f'https://api.fitbit.com/1/user/-/activities/steps/date/{date}/1d.json'
     else:
         return JsonResponse({'error': 'Invalid path'}, status=400)
     
     activity = requests.get(api_url, headers=headers)
-    # print("activit_frequent: ", activity.json())
+    print("activity_time: ", activity.json())
     return JsonResponse(activity.json())
 
 def activities_summary(request,date=None):
@@ -522,7 +522,7 @@ def oxygen(request, date=None):
         return JsonResponse({'error': 'Invalid path'}, status=400)
 
     oxygen = requests.get(api_url, headers=headers)
-    # print("oxygen: ", oxygen.json())
+    print("oxygen: ", oxygen.json())
     return JsonResponse(oxygen.json())
 
 def sleep(request, start_date:None, end_date:None):

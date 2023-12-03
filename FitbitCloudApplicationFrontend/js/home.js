@@ -36,6 +36,13 @@ $(document).ready(function() {
     });
 
     // Initialize the dialog
+    $("#datepicker-dialog-activtime").dialog({
+        autoOpen: false,
+        width: 100,  // Set the width to 500px
+        position: { my: "right", at: "right", of: window }
+    });
+
+    // Initialize the dialog
     $("#datepicker-dialog-bodyfat").dialog({
         autoOpen: false,
         width: 100,  // Set the width to 500px
@@ -139,6 +146,9 @@ $(document).ready(function() {
     $("#datepicker-dialog-actsummary").append('<button id="confirm-date-actsummary">Confirm</button>');
 
     // Add a button inside the dialog box
+    $("#datepicker-dialog-activtime").append('<button id="confirm-date-activtime">Confirm</button>');
+
+    // Add a button inside the dialog box
     $("#datepicker-dialog-bodyfat").append('<button id="confirm-date-bodyfat">Confirm</button>');
 
     // Add a button inside the dialog box
@@ -210,6 +220,13 @@ $(document).ready(function() {
             window.location.href = '../html/activity/activity_summary.html?date=' + encodeURIComponent(pickedDate);
         }
     });
+
+    $("#confirm-date-activtime").click(function() {
+        if (pickedDate) {
+            window.location.href = '../html/activity/activity_time.html?date=' + encodeURIComponent(pickedDate);
+        }
+    });
+
 
     $("#confirm-date-bodyfat").click(function() {
         if (pickedDate) {
@@ -301,6 +318,13 @@ $(document).ready(function() {
     $("#summary_by_date_link").click(function(e) {
         e.preventDefault();
         $("#datepicker-dialog-actsummary").dialog("open");
+    });
+
+
+    // When the "View Activity Summary" link is clicked, open the dialog
+    $("#activity_by_time_link").click(function(e) {
+        e.preventDefault();
+        $("#datepicker-dialog-activtime").dialog("open");
     });
 
 
