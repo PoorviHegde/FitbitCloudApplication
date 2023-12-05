@@ -93,6 +93,10 @@
         left: 50% !important;
         transform: translate(-50%, -50%); 
     }
+
+    .nav-link {
+      cursor: pointer;
+    }
 /*     
     .ui-datepicker .ui-datepicker-prev {
         float: left;

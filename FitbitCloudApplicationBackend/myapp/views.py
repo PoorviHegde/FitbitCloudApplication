@@ -344,6 +344,32 @@ def ecg(request):
     # print("ecg: ", ecg.json())
     return JsonResponse(ecg.json())
 
+def heart_intraday(request,date=None):
+    print("request: ", request)
+    auth_header = request.META.get('HTTP_AUTHORIZATION')
+    print("auth_header: ", auth_header)
+
+    if auth_header is not None:
+        access_token = auth_header.split(' ')[1]  # The access token is after the 'Bearer ' part of the header
+    else:
+        access_token = None
+
+    headers = {
+        'Authorization': f'Bearer {access_token}',
+    }
+
+
+    if date is not None:
+        api_url = 'https://api.fitbit.com/1/user/-/activities/heart/date/{date}/1d.json'
+    else:
+        return JsonResponse({'error': 'Invalid path'}, status=400)
+
+    
+    # Replace this with your actual data
+    heartrate = requests.get(api_url, headers=headers)
+    print("heartrate: ", heartrate.json())
+    return JsonResponse(heartrate.json())
+
 
 def friends(request):
     print("request: ", request)

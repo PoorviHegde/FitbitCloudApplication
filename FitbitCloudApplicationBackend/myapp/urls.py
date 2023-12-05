@@ -28,7 +28,9 @@ urlpatterns = [
     path('api/friends/', views.friends  , name='friends'),
 
     path('api/heartrate/variability/<str:date>/', views.heartrateVariability, name='heartrate_variability_by_date'),
+    path('api/heartrate/intraday/<str:date>/', views.heart_intraday, name='heartrate_intraday_date'),
     path('api/heartrate/<str:start_date>/<str:end_date>/', views.heartrate, name='heartrate_by_date_range'),
+    
 
     path('api/nutrition/food_log/<str:date>/', views.food, name='nutrition_food_log'),
     path('api/nutrition/recent_food/', views.recent_food, name='nutrition_recent_food'),

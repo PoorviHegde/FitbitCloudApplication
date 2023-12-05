@@ -86,6 +86,13 @@ $(document).ready(function() {
         position: { my: "right", at: "right", of: window }
     });
 
+    // Initialize the dialog
+    $("#datepicker-dialog-hrintra").dialog({
+        autoOpen: false,
+        width: 100,  // Set the width to 500px
+        position: { my: "right", at: "right", of: window }
+    });
+
         
     // Initialize the dialog
     $("#datepicker-dialog-food").dialog({
@@ -165,6 +172,9 @@ $(document).ready(function() {
 
     // Add a button inside the dialog box
     $("#datepicker-dialog-hr").append('<button id="confirm-date-hr">Confirm</button>');
+
+    // Add a button inside the dialog box
+    $("#datepicker-dialog-hrintra").append('<button id="confirm-date-hrintra">Confirm</button>');
 
     // Add a button inside the dialog box
     $("#datepicker-dialog-food").append('<button id="confirm-date-food">Confirm</button>');
@@ -263,6 +273,13 @@ $(document).ready(function() {
     $("#confirm-date-hr").click(function() {
         if (pickedDates.length === 2) {
             window.location.href = '../html/heartrate/heart_rate.html?startDate=' + encodeURIComponent(pickedDates[0]) + '&endDate=' + encodeURIComponent(pickedDates[1]);
+        }
+    });
+
+    
+    $("#confirm-date-hrintra").click(function() {
+        if (pickedDate) {
+            window.location.href = '../html/heartrate/heart_rate_intraday.html?date=' + encodeURIComponent(pickedDate);
         }
     });
 
@@ -365,6 +382,11 @@ $(document).ready(function() {
     $("#heart_rate_variability").click(function(e) {
         e.preventDefault();
         $("#datepicker-dialog-hrv").dialog("open");
+    });
+
+    $("#heart_rate_intraday").click(function(e) {
+        e.preventDefault();
+        $("#datepicker-dialog-hrintra").dialog("open");
     });
 
 
